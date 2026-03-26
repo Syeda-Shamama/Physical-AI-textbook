@@ -11,11 +11,11 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://your-username.github.io',
-  baseUrl: '/hackathon1/',
+  url: 'https://Syeda-Shamama.github.io',
+  baseUrl: '/Physical-AI-textbook/',
 
-  organizationName: 'your-username',
-  projectName: 'hackathon1',
+  organizationName: 'Syeda-Shamama',
+  projectName: 'Physical-AI-textbook',
 
   onBrokenLinks: 'warn',
   markdown: {
@@ -74,7 +74,7 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://github.com/your-username/hackathon1',
+          href: 'https://github.com/Syeda-Shamama/Physical-AI-textbook',
           label: 'GitHub',
           position: 'right',
         },
