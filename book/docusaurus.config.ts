@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Physical AI & Humanoid Robotics',
   tagline: 'An AI-Native Textbook — Embodied Intelligence for the Real World',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.svg',
 
   future: {
     v4: true,
