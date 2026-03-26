@@ -1,0 +1,19 @@
+# Environment
+backend/.env
+backend/qdrant_data/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Node
+book/node_modules/
+book/build/
+book/.docusaurus/
+
+# OS
+.DS_Store
+Thumbs.db
