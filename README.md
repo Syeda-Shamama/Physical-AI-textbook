@@ -6,8 +6,8 @@ An AI-native textbook on **Physical AI & Humanoid Robotics** built with Docusaur
 
 ## Live Demo
 
-- **Book**: [GitHub Pages URL] *(after deployment)*
-- **Backend**: [Render/Railway URL] *(after deployment)*
+- **Book**: https://Syeda-Shamama.github.io/Physical-AI-textbook/
+- **Backend**: https://syeda-shamama-physical-ai-backend.hf.space
 
 ## Features
 
