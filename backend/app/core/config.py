@@ -9,8 +9,8 @@ class Settings(BaseSettings):
     qdrant_url: str = "http://localhost:6333"
     qdrant_api_key: str = ""
 
-    # Database
-    database_url: str = ""
+    # Database (defaults to local SQLite if not set)
+    database_url: str = "sqlite+aiosqlite:///./users.db"
 
     # Auth
     secret_key: str = "change-me"

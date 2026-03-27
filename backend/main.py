@@ -4,16 +4,23 @@ from contextlib import asynccontextmanager
 from app.core.config import settings
 from app.api.routes import auth, chat, ingest
 from app.services.rag import ingest_all_docs, collection_count
+from app.models.user import Base
+from app.api.routes.auth import engine
 import os
 import logging
 
 logger = logging.getLogger(__name__)
 
-DOCS_PATH = os.path.join(os.path.dirname(__file__), "..", "book", "docs")
+DOCS_PATH = os.path.join(os.path.dirname(__file__), "docs")
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    # Startup: create DB tables if they don't exist
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
+    logger.info("Database tables ready.")
+
     # Startup: ingest textbook if Qdrant is empty
     count = collection_count()
     if count == 0:
@@ -38,7 +45,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[settings.frontend_url, "http://localhost:3000"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

@@ -3,7 +3,7 @@ import Layout from '@theme/Layout';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './auth.module.css';
 
-const API_URL = 'http://localhost:8000';
+const API_URL = 'https://syeda-shamama-physical-ai-backend.hf.space';
 
 export default function Login(): JSX.Element {
   const [form, setForm] = useState({ email: '', password: '' });
@@ -27,8 +27,9 @@ export default function Login(): JSX.Element {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.detail || 'Login failed');
+      let data: any = {};
+      try { data = await res.json(); } catch { /* non-JSON response */ }
+      if (!res.ok) throw new Error(data.detail || `Server error (${res.status}). Please try again later.`);
       localStorage.setItem('token', data.access_token);
       localStorage.setItem('userEmail', form.email);
 
